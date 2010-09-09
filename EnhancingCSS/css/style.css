@@ -1,0 +1,21 @@
+.CodeMirror-wrapping {
+    border: 1px solid #000;
+    background-color: #fff;
+}
+.CodeMirror-line-numbers {
+    width: 2.2em;
+    color: #aaa;
+    background-color: #eee;
+    text-align: right;
+    padding-right: .3em;
+    font-size: 10pt;
+    font-family: monospace;
+    padding-top: .4em;
+}
+#template div {
+    margin-right: 125px;
+}
+#AddStyle {
+    margin-right: 5px;
+}
+
