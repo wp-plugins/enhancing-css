@@ -109,9 +109,9 @@ class EnhancingCSS{
     public function admin_head()
     {
         if (isset($_GET['page']) && $_GET['page'] == $this->name) {
-            $js = $this->basedir.'/js/codemirror.js';
             $script = '<script src="%s" type="%s" charset="%s"></script>';
-            echo sprintf($script, $js, 'text/javascript', 'UTF-8')."\n";
+            echo sprintf($script, $this->basedir.'/codemirror/codemirror.js', 'text/javascript', 'UTF-8')."\n";
+            echo sprintf($script, $this->basedir.'/js/csseditor.js', 'text/javascript', 'UTF-8')."\n";
             $css = "<link rel=\"stylesheet\" href=\"%s\" type=\"text/css\" />";
             echo sprintf($css, $this->basedir.'/css/style.css');
         }
@@ -149,9 +149,11 @@ class EnhancingCSS{
 
         $url = $this->get_style_url();
         echo "<p><a href=\"{$url}\">{$url}</a></p>";
+        echo "<div id=\"editor\" class=\"stuffbox\">";
         echo '<textarea id="EnhancingCSS" name="EnhancingCSS" style="width:90%;height:300px;">';
         echo $this->get_style_src();
         echo '</textarea>';
+        echo "</div>";
         echo "<p>";
         if (get_option('EnhancingCSS.AddStyle')) {
             echo "<input type=\"checkbox\" id=\"AddStyle\" name=\"AddStyle\" value=\"1\" checked=\"checked\" />";
@@ -162,17 +164,19 @@ class EnhancingCSS{
         echo "</p>";
 
         echo '<p>';
-        echo '<input type="submit" value="'.__('Save').'"> ';
+        echo '<input type="submit" class="button-primary" value="'.__('Save Changes').'"> ';
         echo '</p>';
         echo '</form>';
         echo '</div>';
         echo "<script type=\"text/javascript\">\n";
-        echo "  var editor = CodeMirror.fromTextArea('EnhancingCSS', {\n";
-        echo "    height: \"350px\",\n";
-        echo "    parserfile: [\"parsecss.js\"],\n";
-        echo "    stylesheet: [\"".$this->basedir."/css/csscolors.css\"],\n";
-        echo "    path: \"".$this->basedir."/js/\"\n";
-        echo "  });\n";
+        echo "  var obj = document.getElementById('EnhancingJS');\n";
+        echo "  var btn = [\n";
+        echo "    ['".__('Undo', $this->name)."', 'undo'],\n";
+        echo "    ['".__('Redo', $this->name)."', 'redo'],\n";
+        echo "    ['".__('Search', $this->name)."', 'search'],\n";
+        echo "    ['".__('Replace', $this->name)."', 'replace']\n";
+        echo "  ];\n";
+        echo "  new CSSEditor('EnhancingCSS', '".$this->basedir."', btn);";
         echo "</script>";
     }
 }

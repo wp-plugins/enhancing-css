@@ -44,8 +44,12 @@ edit_theme_options
 
 == Changelog ==
 
-= 0.1 =
+= 0.2 =
+* Add buttons to visual css editor. (Redo, Undo, and other)
+* Add CodeMirror Lisence file.
+* Some other little fixes.
 
+= 0.1 =
 * The first release.
 
 == Credits ==

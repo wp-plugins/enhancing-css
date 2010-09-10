@@ -1,21 +1,67 @@
-.CodeMirror-wrapping {
-    border: 1px solid #000;
+#editor
+{
+    width: 600px;
+}
+
+.CodeMirror-wrapping
+{
+    border-top: 1px solid #cccccc;
     background-color: #fff;
 }
-.CodeMirror-line-numbers {
-    width: 2.2em;
+.CodeMirror-line-numbers
+{
+    width: 40px;
     color: #aaa;
-    background-color: #eee;
+    background-color: #f5f5f5;
+    border-right: 1px solid #cccccc;
     text-align: right;
-    padding-right: .3em;
     font-size: 10pt;
+    line-height: 15pt;
     font-family: monospace;
     padding-top: .4em;
 }
-#template div {
+#template div
+{
     margin-right: 125px;
 }
-#AddStyle {
-    margin-right: 5px;
+div.jse-toolbar
+{
+    background-color: #eeeeee;
+    background-image: url(../img/bg.gif);
+    padding: 5px;
+    margin: 0px !important;
+    height: 24px;
+}
+div.jse-toolbar input
+{
+    text-indent: -9999px;
+    overflow: hidden;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: block;
+    float: left;
+}
+div.jse-toolbar input.undo
+{
+    background-image: url(../img/edit-undo.png);
+}
+div.jse-toolbar input.redo
+{
+    background-image: url(../img/edit-redo.png);
+}
+div.jse-toolbar input.search
+{
+    margin-left: 10px;
+    background-image: url(../img/edit-find.png);
+}
+div.jse-toolbar input.replace
+{
+    background-image: url(../img/edit-find-replace.png);
+}
+label
+{
+    padding-left: 5px;
 }
 
