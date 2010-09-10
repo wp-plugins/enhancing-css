@@ -11,10 +11,11 @@ Enhancing CSS plugin will enable to edit Stylesheet. This Stylesheet is linked a
 == Description ==
 
 Enhancing CSS plugin will enable to edit Stylesheet.
-This Stylesheet is linked as The External Stylesheet by WordPress rewrite api.
+This Stylesheet is linked as The External Stylesheet through WordPress rewrite api.
 In addition, You can add This Stylesheet to Visual Editor.
 
-The CSS editor 'Appearance' -> 'Enhancing CSS' is highlighted by CodeMirror(http://codemirror.net/). 
+The CSS editor 'Appearance' -> 'Enhancing CSS' is highlighted by CodeMirror.
+(http://codemirror.net/)
 
 == Installation ==
 
@@ -25,22 +26,21 @@ The CSS editor 'Appearance' -> 'Enhancing CSS' is highlighted by CodeMirror(http
 
 == Frequently Asked Questions ==
 
-= This Stylesheet is physical file? =
+= This Stylesheet is physical file ? =
 No. This Stylesheet output through WordPress rewrite API.
 
-= Stylesheet path? =
+= Where is URL for External Stylesheet ? =
 Example: http://your_site_url/EnhancingCSS.css
 
-= Can I add Stylesheey to Visual Edtor? =
+= Can I add Stylesheet to Visual Edtor ? =
 Yes. You can select that on 'Appearance' -> 'Enhancing CSS'
 
-= Capabilities? =
+= What are Capabilities ? =
 edit_theme_options
 
 == Screenshots ==
 
-1. screenshot-1.png
-2. screenshot-2.png
+1. screenshot.png
 
 == Changelog ==
 
