@@ -40,7 +40,7 @@ edit_theme_options
 
 == Screenshots ==
 
-1. screenshot.png
+1. Visual Editor for CSS.
 
 == Changelog ==
 
