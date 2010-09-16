@@ -4,7 +4,7 @@ Plugin Name: Enhancing CSS
 Plugin URI: http://firegoby.theta.ne.jp/wp/enhancingcss
 Description: Add & Edit custom stylesheet throught WordPress Dashboard.
 Author: Takayuki Miyauchi (THETA NETWORKS Co,.Ltd)
-Version: 0.2
+Version: 0.3
 Author URI: http://firegoby.theta.ne.jp/
 */
 
@@ -76,8 +76,29 @@ class EnhancingCSS{
     public function get_style()
     {
         header('Content-type: text/css');
+        $this->conditional_get(get_option('EnhancingCSS.last_modified', 0));
         echo $this->get_style_src();
         exit;
+    }
+
+    private function conditional_get($time = 0)
+    {
+        $last_modified = gmdate('D, d M Y H:i:s T', $time);
+        $etag = md5($last_modified);
+        header('Last-Modified: '.$last_modified);
+        header('ETag: "'.$etag.'"');
+        if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
+            if ($_SERVER['HTTP_IF_MODIFIED_SINCE'] == $last_modified) {
+                header('HTTP/1.1 304 Not Modified');
+                exit;
+            }
+        }
+        if (isset($_SERVER['HTTP_IF_NONE_MATCH'])) {
+            if (preg_match("/{$etag}/", $_SERVER['HTTP_IF_NONE_MATCH'])) {
+                header('HTTP/1.1 304 Not Modified');
+                exit;
+            }
+        }
     }
 
     private function get_style_src()
@@ -139,6 +160,7 @@ class EnhancingCSS{
         echo '<h2>'.$this->title.'</h2>';
         if ( isset($_POST['action']) && $_POST['action'] == 'save' ){
             update_option('EnhancingCSS', $_POST['EnhancingCSS']);
+            update_option('EnhancingCSS.last_modified', time());
             if (isset($_POST['AddStyle'])) {
                 update_option('EnhancingCSS.AddStyle', 1);
             } else {

@@ -14,8 +14,23 @@ Enhancing CSS plugin will enable to edit Stylesheet.
 This Stylesheet is linked as The External Stylesheet through WordPress rewrite api.
 In addition, You can add This Stylesheet to Visual Editor.
 
-The CSS editor 'Appearance' -> 'Enhancing CSS' is highlighted by CodeMirror.
-(http://codemirror.net/)
+If you will install this plugin with ['Enhancing JavaScript' plugin](http://wordpress.org/extend/plugins/enhancing-js/),
+You can customize themes without PHP programming!
+
+* [Plugin Homepage](http://firegoby.theta.ne.jp/wp/enhancingcss)
+* [Support](http://wordpress.org/tags/enhancing-css)
+
+= Some features: =
+
+* You can edit External CSS on WordPress admin.
+* You can add Stylesheet to visual editor.
+
+= Translators: =
+
+* Japanese(ja) - [Takayuki Miyauchi](http://firegoby.theta.ne.jp/)
+
+You can send your own language pack to me.
+
 
 == Installation ==
 
