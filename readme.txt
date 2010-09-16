@@ -1,5 +1,5 @@
 === Enhancing CSS ===
-Contributors: Takayuki Miyauchi(id:miyauchi)
+Contributors: miyauchi
 Donate link: http://firegoby.theta.ne.jp/
 Tags: CSS, Stylesheet, Visual Editor
 Requires at least: 3.0
