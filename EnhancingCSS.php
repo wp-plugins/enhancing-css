@@ -4,7 +4,7 @@ Plugin Name: Enhancing CSS
 Plugin URI: http://firegoby.theta.ne.jp/wp/enhancingcss
 Description: Add & Edit custom stylesheet throught WordPress Dashboard.
 Author: Takayuki Miyauchi (THETA NETWORKS Co,.Ltd)
-Version: 0.2
+Version: 0.3
 Author URI: http://firegoby.theta.ne.jp/
 */
 
@@ -75,17 +75,52 @@ class EnhancingCSS{
 
     public function get_style()
     {
-        header('Content-type: text/css');
+        if (is_user_logged_in() && isset($_GET['download']) && $_GET['download'] == 1) {
+            header('Content-type: text/download');
+            header('Content-Disposition: attachment; filename="style.css"');
+            $theme = get_template_directory().'/style.css';
+            echo "/*\n";
+            echo "Theme Name: MyTheme\n";
+            echo "Template: ".get_template()."\n";
+            echo "*/\n";
+            echo "\n";
+            echo "@import url(../".get_template()."/style.css);\n";
+            echo "\n";
+        } else {
+            header('Content-type: text/css');
+            $this->conditional_get(get_option('EnhancingCSS.last_modified', 0));
+        }
         echo $this->get_style_src();
         exit;
+    }
+
+    private function conditional_get($time = 0)
+    {
+        $last_modified = gmdate('D, d M Y H:i:s T', $time);
+        $etag = md5($last_modified);
+        header('Last-Modified: '.$last_modified);
+        header('ETag: "'.$etag.'"');
+        if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
+            if ($_SERVER['HTTP_IF_MODIFIED_SINCE'] == $last_modified) {
+                header('HTTP/1.1 304 Not Modified');
+                exit;
+            }
+        }
+        if (isset($_SERVER['HTTP_IF_NONE_MATCH'])) {
+            if (preg_match("/{$etag}/", $_SERVER['HTTP_IF_NONE_MATCH'])) {
+                header('HTTP/1.1 304 Not Modified');
+                exit;
+            }
+        }
     }
 
     private function get_style_src()
     {
         if($style = trim(get_option('EnhancingCSS'))){
+            $style = str_replace(array("\r\n", "\r"), "\n", $style);
             $css = stripslashes($style);
         } else {
-            $css = "/* {$this->title} */\n";
+            $css = "/* Your style */\n";
         }
         return $css;
     }
@@ -139,6 +174,7 @@ class EnhancingCSS{
         echo '<h2>'.$this->title.'</h2>';
         if ( isset($_POST['action']) && $_POST['action'] == 'save' ){
             update_option('EnhancingCSS', $_POST['EnhancingCSS']);
+            update_option('EnhancingCSS.last_modified', time());
             if (isset($_POST['AddStyle'])) {
                 update_option('EnhancingCSS.AddStyle', 1);
             } else {
@@ -148,7 +184,12 @@ class EnhancingCSS{
         }
 
         $url = $this->get_style_url();
-        echo "<p><a href=\"{$url}\">{$url}</a></p>";
+        echo "<p>";
+        echo "<a href=\"{$url}\">{$url}</a>";
+        echo "&nbsp;- &nbsp;<a href=\"{$url}?download=1\">";
+        echo __("Download for the Child Theme", $this->name);
+        echo "</a>";
+        echo "</p>";
         echo "<div id=\"editor\" class=\"stuffbox\">";
         echo '<textarea id="EnhancingCSS" name="EnhancingCSS" style="width:90%;height:300px;">';
         echo $this->get_style_src();

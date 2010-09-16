@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-11 02:06+0900\n"
+"POT-Creation-Date: 2010-09-16 16:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,34 +17,38 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../EnhancingCSS.php:99
+#: ../EnhancingCSS.php:134
 msgid "Enhancing CSS"
 msgstr ""
 
-#: ../EnhancingCSS.php:147
+#: ../EnhancingCSS.php:183
 msgid "Saved."
 msgstr ""
 
-#: ../EnhancingCSS.php:163
+#: ../EnhancingCSS.php:190
+msgid "Download for the Child Theme"
+msgstr ""
+
+#: ../EnhancingCSS.php:204
 msgid "Add style to The Visual Editor."
 msgstr ""
 
-#: ../EnhancingCSS.php:167
+#: ../EnhancingCSS.php:208
 msgid "Save Changes"
 msgstr ""
 
-#: ../EnhancingCSS.php:174
+#: ../EnhancingCSS.php:215
 msgid "Undo"
 msgstr ""
 
-#: ../EnhancingCSS.php:175
+#: ../EnhancingCSS.php:216
 msgid "Redo"
 msgstr ""
 
-#: ../EnhancingCSS.php:176
+#: ../EnhancingCSS.php:217
 msgid "Search"
 msgstr ""
 
-#: ../EnhancingCSS.php:177
+#: ../EnhancingCSS.php:218
 msgid "Replace"
 msgstr ""

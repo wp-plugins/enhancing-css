@@ -4,7 +4,7 @@ Donate link: http://firegoby.theta.ne.jp/
 Tags: CSS, Stylesheet, Visual Editor
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 0.2
+Stable tag: 0.3
 
 Enhancing CSS plugin will enable to edit Stylesheet. This Stylesheet is linked as The External Stylesheet. In addition, You can add This Stylesheet to Visual Editor.
 
@@ -14,8 +14,25 @@ Enhancing CSS plugin will enable to edit Stylesheet.
 This Stylesheet is linked as The External Stylesheet through WordPress rewrite api.
 In addition, You can add This Stylesheet to Visual Editor.
 
-The CSS editor 'Appearance' -> 'Enhancing CSS' is highlighted by CodeMirror.
-(http://codemirror.net/)
+If you will install this plugin with ['Enhancing JavaScript' plugin](http://wordpress.org/extend/plugins/enhancing-js/),
+You can customize themes without PHP programming!
+
+* [Plugin Homepage](http://firegoby.theta.ne.jp/wp/enhancingcss)
+* [Support](http://wordpress.org/tags/enhancing-css)
+
+= Some features: =
+
+* You can edit External CSS on WordPress admin.
+* You can add Stylesheet to visual editor.
+* Conditional GET and ETag support.
+* You can download stylesheet for the Child Theme.
+
+= Translators: =
+
+* Japanese(ja) - [Takayuki Miyauchi](http://firegoby.theta.ne.jp/)
+
+You can send your own language pack to me.
+
 
 == Installation ==
 
@@ -43,6 +60,10 @@ edit_theme_options
 1. Visual Editor for CSS.
 
 == Changelog ==
+= 0.3 =
+* Conditional GET and ETag support.
+* Added a download link for the Child Theme.
+* Delete carriage return.
 
 = 0.2 =
 * Add buttons to visual css editor. (Redo, Undo, and other)
