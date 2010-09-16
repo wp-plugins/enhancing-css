@@ -24,6 +24,8 @@ You can customize themes without PHP programming!
 
 * You can edit External CSS on WordPress admin.
 * You can add Stylesheet to visual editor.
+* Conditional GET and ETag support.
+* You can download stylesheet for the Child Theme.
 
 = Translators: =
 
@@ -58,6 +60,10 @@ edit_theme_options
 1. Visual Editor for CSS.
 
 == Changelog ==
+= 0.3 =
+* Conditional GET and ETag support.
+* Added a download link for the Child Theme.
+* Delete carriage return.
 
 = 0.2 =
 * Add buttons to visual css editor. (Redo, Undo, and other)

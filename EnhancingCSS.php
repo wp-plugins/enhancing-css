@@ -75,8 +75,21 @@ class EnhancingCSS{
 
     public function get_style()
     {
-        header('Content-type: text/css');
-        $this->conditional_get(get_option('EnhancingCSS.last_modified', 0));
+        if (is_user_logged_in() && isset($_GET['download']) && $_GET['download'] == 1) {
+            header('Content-type: text/download');
+            header('Content-Disposition: attachment; filename="style.css"');
+            $theme = get_template_directory().'/style.css';
+            echo "/*\n";
+            echo "Theme Name: MyTheme\n";
+            echo "Template: ".get_template()."\n";
+            echo "*/\n";
+            echo "\n";
+            echo "@import url(../".get_template()."/style.css);\n";
+            echo "\n";
+        } else {
+            header('Content-type: text/css');
+            $this->conditional_get(get_option('EnhancingCSS.last_modified', 0));
+        }
         echo $this->get_style_src();
         exit;
     }
@@ -104,9 +117,10 @@ class EnhancingCSS{
     private function get_style_src()
     {
         if($style = trim(get_option('EnhancingCSS'))){
+            $style = str_replace(array("\r\n", "\r"), "\n", $style);
             $css = stripslashes($style);
         } else {
-            $css = "/* {$this->title} */\n";
+            $css = "/* Your style */\n";
         }
         return $css;
     }
@@ -170,7 +184,12 @@ class EnhancingCSS{
         }
 
         $url = $this->get_style_url();
-        echo "<p><a href=\"{$url}\">{$url}</a></p>";
+        echo "<p>";
+        echo "<a href=\"{$url}\">{$url}</a>";
+        echo "&nbsp;- &nbsp;<a href=\"{$url}?download=1\">";
+        echo __("Download for the Child Theme", $this->name);
+        echo "</a>";
+        echo "</p>";
         echo "<div id=\"editor\" class=\"stuffbox\">";
         echo '<textarea id="EnhancingCSS" name="EnhancingCSS" style="width:90%;height:300px;">';
         echo $this->get_style_src();
