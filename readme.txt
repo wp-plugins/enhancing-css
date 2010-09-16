@@ -1,10 +1,10 @@
 === Enhancing CSS ===
-Contributors: Takayuki Miyauchi(id:miyauchi)
+Contributors: miyauchi
 Donate link: http://firegoby.theta.ne.jp/
 Tags: CSS, Stylesheet, Visual Editor
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 0.3
+Stable tag: 0.2
 
 Enhancing CSS plugin will enable to edit Stylesheet. This Stylesheet is linked as The External Stylesheet. In addition, You can add This Stylesheet to Visual Editor.
 
