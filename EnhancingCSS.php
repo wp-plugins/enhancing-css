@@ -59,9 +59,9 @@ class EnhancingCSS{
     {
         global $wp_rewrite;
         if ($wp_rewrite->using_permalinks()) {
-            $url = site_url().'/'.$this->name.'.css';
+            $url = get_bloginfo('url').'/'.$this->name.'.css';
         } else {
-            $url = site_url().'/?'.$this->name.'=true';
+            $url = get_bloginfo('url').'/?'.$this->name.'=true';
         }
         return $url;
     }
