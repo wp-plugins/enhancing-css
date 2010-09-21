@@ -61,7 +61,7 @@ edit_theme_options
 
 == Changelog ==
 = 0.4 =
-Fix for bug when giving wordpress its own directory.
+* Fix for bug when giving wordpress its own directory.
 
 = 0.3 =
 * Conditional GET and ETag support.
