@@ -160,6 +160,8 @@ class EnhancingCSS{
             $files[] = $this->get_style_url();
             $files = array_map('trim', $files);
             return join(",", $files);
+        } else {
+            return $css;
         }
     }
 
