@@ -4,7 +4,7 @@ Donate link: http://firegoby.theta.ne.jp/
 Tags: CSS, Stylesheet, Visual Editor
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 0.6
+Stable tag: 0.7
 
 Enhancing CSS plugin will enable to edit Stylesheet. This Stylesheet is linked as The External Stylesheet. In addition, You can add This Stylesheet to Visual Editor.
 
@@ -60,6 +60,10 @@ edit_theme_options
 1. Visual Editor for CSS.
 
 == Changelog ==
+
+= 0.7 =
+Set priority to action of wp_head hook.
+
 = 0.6 =
 fixed bug for when do not apply enhancing-css to visual editor, existing css dis appearing.
 

@@ -4,7 +4,7 @@ Plugin Name: Enhancing CSS
 Plugin URI: http://firegoby.theta.ne.jp/wp/enhancingcss
 Description: Add & Edit custom stylesheet throught WordPress Dashboard.
 Author: Takayuki Miyauchi (THETA NETWORKS Co,.Ltd)
-Version: 0.6
+Version: 0.7
 Author URI: http://firegoby.theta.ne.jp/
 */
 
@@ -52,7 +52,7 @@ class EnhancingCSS{
         $this->basedir = WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__));
         add_action('admin_menu', array(&$this, 'add_admin_page'));
         add_action('admin_head', array(&$this, 'admin_head'));
-        add_action('wp_head', array(&$this, 'wp_head'));
+        add_action('wp_head', array(&$this, 'wp_head'), 9999);
     }
 
     private function get_style_url()
