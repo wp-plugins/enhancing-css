@@ -4,7 +4,7 @@ Plugin Name: Enhancing CSS
 Plugin URI: http://firegoby.theta.ne.jp/wp/enhancingcss
 Description: Add & Edit custom stylesheet throught WordPress Dashboard.
 Author: Takayuki Miyauchi (THETA NETWORKS Co,.Ltd)
-Version: 0.7
+Version: 1.0
 Author URI: http://firegoby.theta.ne.jp/
 */
 
@@ -53,15 +53,16 @@ class EnhancingCSS{
         add_action('admin_menu', array(&$this, 'add_admin_page'));
         add_action('admin_head', array(&$this, 'admin_head'));
         add_action('wp_head', array(&$this, 'wp_head'), 9999);
+        add_filter('plugin_row_meta', array(&$this, 'plugin_row_meta'), 10, 2);
     }
 
     private function get_style_url()
     {
         global $wp_rewrite;
         if ($wp_rewrite->using_permalinks()) {
-            $url = get_bloginfo('url').'/'.$this->name.'.css';
+            $url = site_url().'/'.$this->name.'.css';
         } else {
-            $url = get_bloginfo('url').'/?'.$this->name.'=true';
+            $url = site_url().'/?'.$this->name.'=true';
         }
         return $url;
     }
@@ -127,8 +128,8 @@ class EnhancingCSS{
 
     public function add_admin_page(){
         load_plugin_textdomain(
-            $this->name, 
-            PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)).'/langs', 
+            $this->name,
+            PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)).'/langs',
             dirname(plugin_basename(__FILE__)).'/langs'
         );
         $this->title = __('Enhancing CSS', $this->name);
@@ -221,6 +222,15 @@ class EnhancingCSS{
         echo "  ];\n";
         echo "  new CSSEditor('EnhancingCSS', '".$this->basedir."', btn);";
         echo "</script>";
+    }
+
+    public function plugin_row_meta($links, $file)
+    {
+        $pname = plugin_basename(__FILE__);
+        if ($pname === $file) {
+            $links[] = '<a href="http://firegoby.theta.ne.jp/pfj/">Pray for Japan</a>';
+        }
+        return $links;
     }
 }
 
