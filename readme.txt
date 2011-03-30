@@ -3,8 +3,8 @@ Contributors: miyauchi
 Donate link: http://firegoby.theta.ne.jp/
 Tags: CSS, Stylesheet, Visual Editor
 Requires at least: 3.0
-Tested up to: 3.0
-Stable tag: 0.3
+Tested up to: 3.1
+Stable tag: 1.0
 
 Enhancing CSS plugin will enable to edit Stylesheet. This Stylesheet is linked as The External Stylesheet. In addition, You can add This Stylesheet to Visual Editor.
 
@@ -39,7 +39,7 @@ You can send your own language pack to me.
 * A plug-in installation screen is displayed on the WordPress admin panel.
 * It installs it in `wp-content/plugins`.
 * The plug-in is made effective.
-* Open 'Appearance' -> 'Enhancing CSS' menu. 
+* Open 'Appearance' -> 'Enhancing CSS' menu.
 
 == Frequently Asked Questions ==
 
@@ -60,6 +60,22 @@ edit_theme_options
 1. Visual Editor for CSS.
 
 == Changelog ==
+
+= 1.0 =
+fixed bug on using with multilingual plugin.
+
+= 0.7 =
+Set priority to action of wp_head hook.
+
+= 0.6 =
+fixed bug for when do not apply enhancing-css to visual editor, existing css dis appearing.
+
+= 0.5 =
+* Codemirror updated.
+
+= 0.4 =
+* Fix for bug when giving wordpress its own directory.
+
 = 0.3 =
 * Conditional GET and ETag support.
 * Added a download link for the Child Theme.
