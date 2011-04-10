@@ -4,7 +4,7 @@ Donate link: http://firegoby.theta.ne.jp/
 Tags: CSS, Stylesheet, Visual Editor
 Requires at least: 3.0
 Tested up to: 3.1
-Stable tag: 1.0
+Stable tag: 1.1
 
 Enhancing CSS plugin will enable to edit Stylesheet. This Stylesheet is linked as The External Stylesheet. In addition, You can add This Stylesheet to Visual Editor.
 
@@ -61,6 +61,9 @@ edit_theme_options
 
 == Changelog ==
 
+= 1.1 =
+fixed bug. chang site_url() to home_url().
+
 = 1.0 =
 fixed bug on using with multilingual plugin.
 
@@ -100,4 +103,4 @@ WordPress のユーザーは目的を問わず、このプラグインを無償�
 == Contact ==
 
 email to miya[at]theta.ne.jp
-
+twitter @miya0001
